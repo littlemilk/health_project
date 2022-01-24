@@ -1,0 +1,16 @@
+cn\bunk\pojo\Member.class
+cn\bunk\pojo\Permission.class
+cn\bunk\pojo\Setmeal.class
+cn\bunk\pojo\Menu.class
+cn\bunk\pojo\CheckGroup.class
+cn\bunk\pojo\Role.class
+cn\bunk\constant\RedisConstant.class
+cn\bunk\entity\Result.class
+cn\bunk\constant\MessageConstant.class
+cn\bunk\pojo\CheckItem.class
+cn\bunk\entity\QueryPageBean.class
+cn\bunk\pojo\Order.class
+cn\bunk\entity\PageResult.class
+cn\bunk\util\QiniuUtil.class
+cn\bunk\pojo\OrderSetting.class
+cn\bunk\pojo\User.class

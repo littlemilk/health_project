@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bunk.dao.SetmealDao">
+
+    <select id="findPage" parameterType="string" resultType="cn.bunk.pojo.Setmeal">
+        select * from t_setmeal
+        <if test="value != null and value.length > 0 and value != ''">
+            where code = #{value} or name = #{value} or helpCode = #{value}
+        </if>
+    </select>
+
+    <insert id="setSetmealIdAndCheckgroupId" parameterType="map">
+        insert into t_setmeal_checkgroup(setmeal_id, checkgroup_id)
+        values
+        (#{setmealId}, #{checkgroupId})
+    </insert>
+
+    <insert id="add" parameterType="cn.bunk.pojo.Setmeal">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+            select LAST_INSERT_ID()
+        </selectKey>
+        insert into t_setmeal(code,name,sex,helpCode,remark,attention,age,price,img)
+        values
+        (#{code},#{name},#{sex},#{helpCode},#{remark},#{attention},#{age},#{price},#{img})
+    </insert>
+
+    <select id="findById" parameterType="int" resultType="cn.bunk.pojo.Setmeal">
+        select * from t_setmeal where id = #{id}
+    </select>
+
+    <select id="findGroupIdsBySetmealId" parameterType="int" resultType="int">
+        select checkgroup_id from t_setmeal_checkgroup where setmeal_id = #{id}
+    </select>
+
+    <delete id="deleteCheckgroupIds" parameterType="int">
+        delete from t_setmeal_checkgroup where setmeal_id = #{id}
+    </delete>
+
+    <update id="updateSetmeal" parameterType="cn.bunk.pojo.Setmeal">
+        update t_setmeal
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="code != null">
+                code = #{code},
+            </if>
+            <if test="helpCode != null">
+                helpCode = #{helpCode},
+            </if>
+            <if test="sex != null">
+                sex = #{sex},
+            </if>
+            <if test="age != null">
+                age = #{age},
+            </if>
+            <if test="price != null">
+                price = #{price},
+            </if>
+            <if test="remark != null">
+                remark = #{remark},
+            </if>
+            <if test="attention != null">
+                attention = #{attention},
+            </if>
+            <if test="img != null">
+                img = #{img},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        delete from t_setmeal where id = #{id}
+    </delete>
+</mapper>

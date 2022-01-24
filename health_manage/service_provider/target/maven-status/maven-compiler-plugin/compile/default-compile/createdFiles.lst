@@ -1,0 +1,6 @@
+cn\bunk\service\impl\CheckItemServiceImpl.class
+cn\bunk\dao\CheckItemDao.class
+cn\bunk\dao\CheckGroupDao.class
+cn\bunk\service\impl\SetmealServiceImpl.class
+cn\bunk\service\impl\CheckGroupServiceImpl.class
+cn\bunk\dao\SetmealDao.class
