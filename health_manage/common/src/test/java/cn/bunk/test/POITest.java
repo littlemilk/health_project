@@ -38,7 +38,7 @@ public class POITest {
             }
         }
 
-        FileOutputStream out = new FileOutputStream("C:\\Users\\hongbin.liang\\Desktop\\Award2.xlsx");
+        FileOutputStream out = new FileOutputStream("C:\\Award.xlsx");
         workbook.write(out);
         out.flush();
         out.close();
@@ -56,7 +56,7 @@ public class POITest {
         }
         try {
             //30,8,33,3,21,32,12,
-            XSSFWorkbook book = new XSSFWorkbook(new FileInputStream(new File("C:\\Users\\hongbin.liang\\Desktop\\Award.xlsx")));
+            XSSFWorkbook book = new XSSFWorkbook(new FileInputStream(new File("C:\\Award.xlsx")));
             XSSFSheet sheet = book.getSheetAt(0);
             int lastRowNum = sheet.getLastRowNum();
             for(int i = 0;i <= lastRowNum;i++){

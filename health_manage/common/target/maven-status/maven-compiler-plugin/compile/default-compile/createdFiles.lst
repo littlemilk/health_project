@@ -14,3 +14,4 @@ cn\bunk\entity\PageResult.class
 cn\bunk\util\QiniuUtil.class
 cn\bunk\pojo\OrderSetting.class
 cn\bunk\pojo\User.class
+cn\bunk\util\POIUtils.class

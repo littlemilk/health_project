@@ -1,3 +1,4 @@
 cn\bunk\controller\CheckGroupController.class
-cn\bunk\controller\SetmealController.class
 cn\bunk\controller\CheckItemController.class
+cn\bunk\controller\OrderSettingController.class
+cn\bunk\controller\SetmealController.class
