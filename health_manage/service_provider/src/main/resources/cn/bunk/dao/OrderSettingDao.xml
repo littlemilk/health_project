@@ -27,4 +27,7 @@
         where orderDate = #{orderDate}
     </update>
 
+    <select id="getOrderSettingByMonth" parameterType="map" resultType="cn.bunk.pojo.OrderSetting">
+        select * from t_ordersetting where orderDate between #{begin} and #{end}
+    </select>
 </mapper>
