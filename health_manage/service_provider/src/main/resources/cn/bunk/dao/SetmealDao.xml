@@ -2,6 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.bunk.dao.SetmealDao">
+    <resultMap id="baseResultMap" type="cn.bunk.pojo.Setmeal">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="code" property="code"/>
+        <result column="helpCode" property="helpCode"/>
+        <result column="sex" property="sex"/>
+        <result column="age" property="age"/>
+        <result column="price" property="price"/>
+        <result column="remark" property="remark"/>
+        <result column="attention" property="attention"/>
+        <result column="img" property="img"/>
+    </resultMap>
+
+    <resultMap id="findByIdResultMap" type="cn.bunk.pojo.Setmeal" extends="baseResultMap">
+        <collection property="checkGroups"
+                    ofType="cn.bunk.pojo.CheckGroup"
+                    select="cn.bunk.dao.CheckGroupDao.findCheckGroupById"
+                    column="id"></collection>
+    </resultMap>
 
     <select id="findPage" parameterType="string" resultType="cn.bunk.pojo.Setmeal">
         select * from t_setmeal
@@ -25,7 +44,7 @@
         (#{code},#{name},#{sex},#{helpCode},#{remark},#{attention},#{age},#{price},#{img})
     </insert>
 
-    <select id="findById" parameterType="int" resultType="cn.bunk.pojo.Setmeal">
+    <select id="findById" parameterType="int" resultMap="findByIdResultMap">
         select * from t_setmeal where id = #{id}
     </select>
 
@@ -74,4 +93,8 @@
     <delete id="delete" parameterType="int">
         delete from t_setmeal where id = #{id}
     </delete>
+
+    <select id="findAll" resultType="cn.bunk.pojo.Setmeal">
+        select * from t_setmeal
+    </select>
 </mapper>

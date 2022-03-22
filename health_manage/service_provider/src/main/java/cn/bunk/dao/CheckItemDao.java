@@ -18,4 +18,6 @@ public interface CheckItemDao {
     public void delete(Integer id);
 
     public List<CheckItem> findAll();
+
+    List<CheckItem> findCheckItemById();
 }

@@ -13,6 +13,7 @@
         <module>service_provider</module>
         <module>backend</module>
         <module>job</module>
+        <module>mobile</module>
     </modules>
 
     <packaging>pom</packaging>

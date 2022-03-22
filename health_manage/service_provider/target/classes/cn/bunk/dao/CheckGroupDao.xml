@@ -2,6 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.bunk.dao.CheckGroupDao">
+    <resultMap id="baseResultMap" type="cn.bunk.pojo.CheckGroup">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="code" property="code"/>
+        <result column="helpCode" property="helpCode"/>
+        <result column="sex" property="sex"/>
+        <result column="remark" property="remark"/>
+        <result column="attention" property="attention"/>
+    </resultMap>
+    
+    <resultMap id="findByIdResultMap" type="cn.bunk.pojo.CheckGroup" extends="baseResultMap">
+        <collection property="checkItems"
+                    ofType="cn.bunk.pojo.CheckItem"
+                    select="cn.bunk.dao.CheckItemDao.findCheckItemById"
+                    column="id"></collection>
+    </resultMap>
 
     <select id="findPage" parameterType="string" resultType="cn.bunk.pojo.CheckGroup">
         select * from t_checkgroup
@@ -69,5 +85,9 @@
 
     <select id="findAll" resultType="cn.bunk.pojo.CheckGroup">
         select * from t_checkgroup
+    </select>
+    
+    <select id="findCheckGroupById" parameterType="int" resultMap="findByIdResultMap">
+        select * from t_checkgroup where id in (select checkgroup_id from t_setmeal_checkgroup where setmeal_id = #{setmeal_id})
     </select>
 </mapper>

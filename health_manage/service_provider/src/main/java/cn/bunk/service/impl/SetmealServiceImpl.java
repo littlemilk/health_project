@@ -65,6 +65,11 @@ public class SetmealServiceImpl implements SetmealService {
         setmealDao.delete(id);
     }
 
+    @Override
+    public List<Setmeal> findAll() {
+        return setmealDao.findAll();
+    }
+
     public void setSetmealIdAndCheckgroupId(int setmealId, Integer[] checkgroupIds){
         for (int checkgroupId : checkgroupIds){
             Map map = new HashMap<Integer, Integer>();

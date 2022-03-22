@@ -8,6 +8,8 @@ cn\bunk\constant\RedisConstant.class
 cn\bunk\entity\Result.class
 cn\bunk\constant\MessageConstant.class
 cn\bunk\pojo\CheckItem.class
+cn\bunk\util\SMSUtils.class
+cn\bunk\util\ValidateCodeUtils.class
 cn\bunk\entity\QueryPageBean.class
 cn\bunk\pojo\Order.class
 cn\bunk\entity\PageResult.class

@@ -25,4 +25,6 @@ public interface CheckGroupDao {
     public void delete(Integer id);
 
     List<CheckGroup> findAll();
+
+    List<CheckGroup> findCheckGroupById();
 }
